@@ -29,6 +29,7 @@ namespace EulerLib
 		}
 		return p;
 	}
+
 #pragma endregion Primes
 
 #pragma region Misc
