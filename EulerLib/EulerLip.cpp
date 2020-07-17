@@ -74,4 +74,42 @@ namespace EulerLib
 		return true;
 	}
 #pragma endregion Misc
+
+#pragma region PythTriple
+	PythTriple::PythTriple(long int a, long int b, long int c)
+	{
+		side[0] = a;
+		side[1] = b;
+		hypotenuse = c;
+	}
+	long int * PythTriple::getABC()
+	{
+		long int temp[3];
+		temp[0] = side[0];
+		temp[1] = side[1];
+		temp[2] = hypotenuse;
+		return temp;
+	}
+
+	bool PythTriple::isPythTriple()
+	{
+		if (((side[0] * side[0]) + (side[1] * side[1])) == (hypotenuse * hypotenuse))
+		{
+			return true;
+		}
+		else { return false; }
+	}
+
+	int PythTriple::getSum()
+	{
+		long int sum = side[0] + side[1] + hypotenuse;
+		return sum;
+	}
+
+	long int PythTriple::getProduct()
+	{
+		long int product = side[0] * side[1] * hypotenuse;
+		return product;
+	}
+
 }
