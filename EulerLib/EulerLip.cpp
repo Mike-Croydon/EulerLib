@@ -43,6 +43,7 @@ namespace EulerLib
 		return temp;
 	}
 
+	//checks if a number is a palindrome. Returns true if it is
 	bool Misc::isPalindrome(int p)
 	{
 		std::string str = std::to_string(p);
@@ -55,6 +56,21 @@ namespace EulerLib
 		{
 			return false;
 		}
+	}
+
+	//Checks if a number is divisible by the ints in testVals[]
+	bool Misc::divCheck(long long int num, int testVals[])
+	{
+		bool result = true;
+		int numElems = sizeof(testVals) / sizeof(int);
+		for (int i = 0; i < numElems - 1; i++)
+		{
+			if ((num % testVals[i]) != 0)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 #pragma endregion Misc
 }
