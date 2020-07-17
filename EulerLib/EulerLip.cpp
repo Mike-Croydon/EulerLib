@@ -31,6 +31,52 @@ namespace EulerLib
 		return p;
 	}
 
+	//This function uses the Sieve of Eratosthenes algorithm to calculate all primes < a max
+	std::vector<int>  Primes::sieveE(int max)
+	{
+		std::vector<int> nums, marked, primes;
+		int p = 2;
+		for (int i = 1; i <= max; i++)
+		{
+			nums.push_back(i);
+			marked.push_back(0);
+		}
+
+		//This is the main loop. Numbers that are non-prime are marked that way by placing a 1 at their corresponding index
+		for (int i = 0; i < max; i++)
+		{
+			while (p < max)
+			{
+				int marker = p * p;
+				if (marker > max) { break; }	//once the marker is initially greater than the max all future markers will be greater than the max
+				//non-primes are marked in this while loop
+				while (marker < max)
+				{
+					marked[marker - 1] = 1;
+					marker += p;
+				}
+				//This loop finds the next number which hasn't been marked
+				while (p < max)
+				{
+					p++;
+					if (marked[p - 1] == 0) { break; }
+				}
+			}
+		}
+		//This loops copies all the marked numbers to a new vector containing only primes
+		for (int i = 0; i < max; i++)
+		{
+			if (marked[i] == 0)
+			{
+				primes.push_back(i + 1);
+			}
+		}
+
+		primes.erase(primes.begin()); //removes 1
+		primes.erase(primes.end() - 1); //removes max
+
+		return primes;
+	}
 #pragma endregion Primes
 
 #pragma region Misc

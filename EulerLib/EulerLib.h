@@ -9,6 +9,7 @@ namespace EulerLib
 	public:
 		static bool isPrime(int n);
 		static int nextHighestPrime(int p);
+		static std::vector<int> sieveE(int max);
 	};
 
 	class Misc {
