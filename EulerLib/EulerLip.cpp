@@ -1,7 +1,8 @@
 //This is a library of useful functions created help solve the Project Euler problems
 #include "stdafx.h"
 #include "EulerLib.h"
-#include <cmath>
+
+
 
 namespace EulerLib
 {
@@ -59,10 +60,10 @@ namespace EulerLib
 	}
 
 	//Checks if a number is divisible by the ints in testVals[]
-	bool Misc::divCheck(long long int num, int testVals[])
+	bool Misc::divCheck(long long int num, std::vector<int> testVals)
 	{
 		bool result = true;
-		int numElems = sizeof(testVals) / sizeof(int);
+		int numElems = testVals.size();
 		for (int i = 0; i < numElems - 1; i++)
 		{
 			if ((num % testVals[i]) != 0)
