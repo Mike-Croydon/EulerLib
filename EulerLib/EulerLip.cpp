@@ -5,6 +5,7 @@
 
 namespace EulerLib
 {
+#pragma region Primes
 	//Brute force checks every number < sqrt(2*n) to see if n is prime
 	bool Primes::isPrime(int n)
 	{
@@ -28,4 +29,31 @@ namespace EulerLib
 		}
 		return p;
 	}
+#pragma endregion Primes
+
+#pragma region Misc
+	std::string Misc::reverseString(std::string s)
+	{
+		std::string temp;
+		for (int i = s.length() - 1; i >= 0; i--)
+		{
+			temp.push_back(s[i]);
+		}
+		return temp;
+	}
+
+	bool Misc::isPalindrome(int p)
+	{
+		std::string str = std::to_string(p);
+		std::string rev = reverseString(str);
+		if (str == rev)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+#pragma endregion Misc
 }
