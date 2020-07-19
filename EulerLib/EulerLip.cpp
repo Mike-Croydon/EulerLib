@@ -134,6 +134,7 @@ namespace EulerLib
 					product *= gridVec[i][j + k];
 				}
 				product > max ? max = product : product;
+				product = 1;
 			}
 		}
 		return max;
