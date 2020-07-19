@@ -119,6 +119,25 @@ namespace EulerLib
 		}
 		return true;
 	}
+
+	//Checks a given 2d vector of ints and returns the largest horizontal product of n elements
+	long int Misc::calcMaxHorizProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	{
+		long int max = 0;
+		long int product = 1;
+		for (int i = 0; i < gridVec.size(); i++)
+		{
+			for (int j = 0; j < gridVec[0].size()-n; j++)
+			{
+				for(int k = 0; k < n; k++)
+				{
+					product *= gridVec[i][j + k];
+				}
+				product > max ? max = product : product;
+			}
+		}
+		return max;
+	}
 #pragma endregion Misc
 
 #pragma region PythTriple

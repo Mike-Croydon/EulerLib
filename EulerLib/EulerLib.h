@@ -17,6 +17,8 @@ namespace EulerLib
 		static std::string reverseString(std::string s);
 		static bool isPalindrome(int p);
 		static bool divCheck(long long int num, std::vector<int> testVals);
+		static long int calcMaxHorizProduct(const std::vector<std::vector<int>> & gridVec, const int n);
+		
 	};
 
 	//This class is used to store a Pythagorean triple and has some useful functions to perform necessary calculations
