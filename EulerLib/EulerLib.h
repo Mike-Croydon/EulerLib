@@ -17,10 +17,11 @@ namespace EulerLib
 		static std::string reverseString(std::string s);
 		static bool isPalindrome(int p);
 		static bool divCheck(long long int num, std::vector<int> testVals);
-		static long int calcMaxHorizProduct(const std::vector<std::vector<int>> & gridVec, const int n);
-		static long int calcMaxVertProduct(const std::vector<std::vector<int>> & gridVec, const int n);
-		static long int calcMaxRDiagProduct(const std::vector<std::vector<int>> & gridVec, const int n);
-		static long int calcMaxLDiagProduct(const std::vector<std::vector<int>> & gridVec, const int n);
+		static long int calcMaxHorizProduct(const std::vector<std::vector<int>> & gridVec, int n);
+		static long int calcMaxVertProduct(const std::vector<std::vector<int>> & gridVec, int n);
+		static long int calcMaxRDiagProduct(const std::vector<std::vector<int>> & gridVec, int n);
+		static long int calcMaxLDiagProduct(const std::vector<std::vector<int>> & gridVec, int n);
+		static std::vector<long long int> getDivisors( long long int num);
 		
 	};
 

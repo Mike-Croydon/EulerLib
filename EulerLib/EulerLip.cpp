@@ -121,7 +121,7 @@ namespace EulerLib
 	}
 
 	//Checks a given 2d vector of ints and returns the largest horizontal product of n elements. Assumes gridVec is more than n elements wide
-	long int Misc::calcMaxHorizProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	long int Misc::calcMaxHorizProduct(const std::vector <std::vector<int>> & gridVec, int n)
 	{
 		long int max = 0;
 		long int product = 1;
@@ -141,7 +141,7 @@ namespace EulerLib
 	}
 
 	//Checks a given 2d vector of ints and returns the largest vertical product of n elements. Assumes gridVec is more than n elements tall
-	long int Misc::calcMaxVertProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	long int Misc::calcMaxVertProduct(const std::vector <std::vector<int>> & gridVec, int n)
 	{
 		long int max = 0;
 		long int product = 1;
@@ -161,7 +161,7 @@ namespace EulerLib
 	}
 
 	//Checks a given 2d vector of ints and returns the largest right diagonal product of n elements.
-	long int Misc::calcMaxRDiagProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	long int Misc::calcMaxRDiagProduct(const std::vector <std::vector<int>> & gridVec, int n)
 	{
 		long int max = 0;
 		long int product = 1;
@@ -181,7 +181,7 @@ namespace EulerLib
 	}
 
 	//Checks a given 2d vector of ints and returns the largest left diagonal product of n elements.
-	long int Misc::calcMaxLDiagProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	long int Misc::calcMaxLDiagProduct(const std::vector <std::vector<int>> & gridVec, int n)
 	{
 		long int max = 0;
 		long int product = 1;
@@ -198,6 +198,23 @@ namespace EulerLib
 			}
 		}
 		return max;
+	}
+
+	//Calculates the divisors of a given long long int and returns the divisor in a vector
+	std::vector<long long int> Misc::getDivisors(long long int num)
+	{
+		long long int i = 1;
+		std::vector<long long int> divisors;
+		while (i <= sqrt(num))
+		{
+			if (num % i == 0)
+			{
+				divisors.push_back(i);
+				divisors.push_back(num / i);
+			}
+			++i;
+		}
+		return divisors;
 	}
 	
 #pragma endregion Misc
@@ -239,4 +256,5 @@ namespace EulerLib
 		return product;
 	}
 
+#pragma endreion PythTriple
 }
