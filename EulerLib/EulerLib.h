@@ -18,6 +18,9 @@ namespace EulerLib
 		static bool isPalindrome(int p);
 		static bool divCheck(long long int num, std::vector<int> testVals);
 		static long int calcMaxHorizProduct(const std::vector<std::vector<int>> & gridVec, const int n);
+		static long int calcMaxVertProduct(const std::vector<std::vector<int>> & gridVec, const int n);
+		static long int calcMaxRDiagProduct(const std::vector<std::vector<int>> & gridVec, const int n);
+		static long int calcMaxLDiagProduct(const std::vector<std::vector<int>> & gridVec, const int n);
 		
 	};
 

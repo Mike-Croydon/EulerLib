@@ -120,14 +120,14 @@ namespace EulerLib
 		return true;
 	}
 
-	//Checks a given 2d vector of ints and returns the largest horizontal product of n elements
+	//Checks a given 2d vector of ints and returns the largest horizontal product of n elements. Assumes gridVec is more than n elements wide
 	long int Misc::calcMaxHorizProduct(const std::vector <std::vector<int>> & gridVec, const int n)
 	{
 		long int max = 0;
 		long int product = 1;
 		for (int i = 0; i < gridVec.size(); i++)
 		{
-			for (int j = 0; j < gridVec[0].size()-n; j++)
+			for (int j = 0; j < gridVec[0].size() - n + 1; j++)
 			{
 				for(int k = 0; k < n; k++)
 				{
@@ -139,6 +139,67 @@ namespace EulerLib
 		}
 		return max;
 	}
+
+	//Checks a given 2d vector of ints and returns the largest vertical product of n elements. Assumes gridVec is more than n elements tall
+	long int Misc::calcMaxVertProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	{
+		long int max = 0;
+		long int product = 1;
+		for (int i = 0; i < gridVec.size() - n + 1; i++)
+		{
+			for (int j = 0; j < gridVec[0].size(); j++)
+			{
+				for (int k = 0; k < n; k++)
+				{
+					product *= gridVec[i+k][j];
+				}
+				product > max ? max = product : product;
+				product = 1;
+			}
+		}
+		return max;
+	}
+
+	//Checks a given 2d vector of ints and returns the largest right diagonal product of n elements.
+	long int Misc::calcMaxRDiagProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	{
+		long int max = 0;
+		long int product = 1;
+		for (int i = 0; i < gridVec.size() - n + 1; i++)
+		{
+			for (int j = 0; j < gridVec[0].size() - n + 1; j++)
+			{
+				for (int k = 0; k < n; k++)
+				{
+					product *= gridVec[i + k][j + k];
+				}
+				product > max ? max = product : product;
+				product = 1;
+			}
+		}
+		return max;
+	}
+
+	//Checks a given 2d vector of ints and returns the largest left diagonal product of n elements.
+	long int Misc::calcMaxLDiagProduct(const std::vector <std::vector<int>> & gridVec, const int n)
+	{
+		long int max = 0;
+		long int product = 1;
+		for (int i = 0; i < gridVec.size() - n + 1; i++)
+		{
+			for (int j = n-1; j < gridVec[0].size(); j++)
+			{
+				for (int k = 0; k < n; k++)
+				{
+					product *= gridVec[i + k][j - k];
+				}
+				product > max ? max = product : product;
+				product = 1;
+			}
+		}
+		return max;
+	}
+	
 #pragma endregion Misc
 
 #pragma region PythTriple
